@@ -20,9 +20,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Slf4j
+
 public class TokenProvider {
-    private static final String AUTHORITIES_KEY = "auth";
+
     private final String secret;
     private final long tokenValidityInSeconds;
 

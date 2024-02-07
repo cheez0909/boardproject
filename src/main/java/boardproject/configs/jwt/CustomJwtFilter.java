@@ -15,35 +15,39 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import java.io.IOException;
 
-@Slf4j
+
 @Component
 @RequiredArgsConstructor
 public class CustomJwtFilter extends GenericFilterBean {
 
-    public static final String AUTHORIZATION_HEADER = "Authorization";
+    // public static final String AUTHORIZATION_HEADER = "Authorization";
     private final TokenProvider tokenProvider;
 
     // 토큰 유효성 검사
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        String jwt = resolveToken(req);
-        String requestURI = req.getRequestURI();
 
-        if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
+        HttpServletRequest req = (HttpServletRequest) request;
+
+
+        /* 요청 헤더 Authoriztion 항목의 JWT 토큰 추출 S */
+        String header = req.getHeader("Authorization");
+        String jwt = null;
+
+        if (StringUtils.hasText(header)) {
+            jwt = header.substring(7);
+        }
+        /* 요청 헤더 Authoriztion 항목의 JWT 토큰 추출 E */
+
+        /* 로그인 유지 처리 S */
+        if(StringUtils.hasText(jwt)){
+            tokenProvider.validateToken(jwt); // 토큰 이상 시 -> 예외 발생
             Authentication authentication = tokenProvider.getAuthentication(jwt);
             SecurityContextHolder.getContext().setAuthentication(authentication);
-            log.debug("Security Context에 %s 인증 벙보를 저장했습니다. URI : %s", authentication.getName());
-        } else {
-            log.debug("유효한 JWT 토큰이 없습니다. URI : %s", requestURI);
         }
+        /* 로그인 유지 처리 E */
+
         chain.doFilter(request, response);
     }
-    private String resolveToken(HttpServletRequest request){
-        String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
-        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")){
-            return bearerToken.substring(7);
-        }
-        return null;
-    }
+
 }
