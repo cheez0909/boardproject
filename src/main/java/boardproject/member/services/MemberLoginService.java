@@ -2,6 +2,7 @@ package boardproject.member.services;
 
 
 import boardproject.configs.jwt.TokenProvider;
+import boardproject.member.controllers.RequestLogin;
 import boardproject.member.controllers.ResponseLogin;
 import boardproject.member.repositories.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,16 +17,15 @@ public class MemberLoginService {
 
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
-    private final MemberRepository memberRepository;
 
-    public ResponseLogin authenticatie(String email, String password){
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, password);
+
+    public String login(RequestLogin form){
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(form.email(), form.password());
+
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 
-        String accessToken = tokenProvider.createToken(authentication);
+        String accessToken = tokenProvider.createToken(authentication); // JWT 토큰 발급
 
-        return ResponseLogin.builder()
-                .accessToken(accessToken)
-                .build();
+        return accessToken;
     }
 }

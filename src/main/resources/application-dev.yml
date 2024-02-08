@@ -73,3 +73,9 @@ file:
   upload:
     url: /uploads/
     path: /Users/da-eunlee/Desktop/uploads/
+
+
+jwt:
+  header: Authorization
+  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM # base64 인코딩
+  accessTokenValidityInSeconds: 3600 # 60 min

@@ -48,8 +48,8 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(c -> {
             c.requestMatchers(
-                            "/api/v1/member", // 회원가입
-                            "/api/v1/member/token").permitAll() // 로그인
+                            "/api/member", // 회원가입
+                            "/api/member/token").permitAll() // 로그인
                     .anyRequest().authenticated(); // 나머지 URL은 모두 회원 인증(토큰 인증)
        });
 

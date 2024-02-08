@@ -3,7 +3,9 @@ package boardproject.member.controllers;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 
+@Builder
 public record RequestJoin(
         @NotBlank @Email
         String email,

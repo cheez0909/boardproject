@@ -6,8 +6,8 @@ spring:
   datasource:
     driverClassName: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: PROJECT
-    password: _aA123456 # git에 올리면 위험할 수 있으므로 비밀번호만 관리하는 서버가 따로 있음
+    username: PROJECT7
+    password: aA123456 # git에 올리면 위험할 수 있으므로 비밀번호만 관리하는 서버가 따로 있음
 
   # JPA 설정
   jpa:
@@ -55,3 +55,10 @@ file:
   upload:
     url: /uploads/
     path: c:/uploads/
+
+
+
+jwt:
+  header: Authorization
+  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM # base64 인코딩
+  accessTokenValidityInSeconds: 3600 # 60 min

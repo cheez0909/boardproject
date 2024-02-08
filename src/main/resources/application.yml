@@ -71,6 +71,7 @@ logging:
         type:
           descriptor:
             sql: trace
+    org.springframework.web: DEBUG
 
 # 파일 업로드 경로 설정
 file:
@@ -78,8 +79,7 @@ file:
     url: /uploads/
     path: c:/uploads/
 
-# JSON WebToken 설정
 jwt:
   header: Authorization
-  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM
+  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM # base64 인코딩
   accessTokenValidityInSeconds: 3600 # 60 min
