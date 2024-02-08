@@ -1,21 +1,16 @@
-package boardproject.member.controllers;
+package boardproject.commons;
 
-import boardproject.commons.JSONData;
 import boardproject.commons.exceptions.CommonException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.http.HttpStatus;
 
 import java.nio.file.AccessDeniedException;
 
-@RestControllerAdvice("boardproject.member.controllers")
-public class CommonController {
-
+public interface ExceptionProcessor {
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<JSONData<Object>> errorHandler(Exception e){
+    default ResponseEntity<JSONData<Object>> errorHandler(Exception e){
 
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -37,5 +32,4 @@ public class CommonController {
 
         return ResponseEntity.status(status).body(data);
     }
-
 }

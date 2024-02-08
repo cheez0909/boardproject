@@ -1,5 +1,6 @@
 package boardproject.member.controllers;
 
+import boardproject.commons.ExceptionProcessor;
 import boardproject.commons.JSONData;
 import boardproject.commons.Utils;
 import boardproject.commons.exceptions.BadRequestException;
@@ -21,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/member")
 @RequiredArgsConstructor
-public class ApiMemberController {
+public class ApiMemberController implements ExceptionProcessor {
 
     private final MemberSaveService saveService;
     private final MemberLoginService memberLoginService;
