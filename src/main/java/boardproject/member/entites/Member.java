@@ -1,6 +1,6 @@
 package boardproject.member.entites;
 
-import boardproject.commons.entities.BaseEntity;
+import boardproject.commons.entities.Base;
 import boardproject.member.MemberType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member extends BaseEntity {
+public class Member extends Base {
 
     @Id @GeneratedValue
     private Long seq;

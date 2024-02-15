@@ -4,7 +4,6 @@ import boardproject.file.entites.FileInfo;
 import boardproject.member.MemberType;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
