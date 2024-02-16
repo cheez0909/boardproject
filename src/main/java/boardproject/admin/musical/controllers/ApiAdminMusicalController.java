@@ -1,4 +1,4 @@
-package boardproject.admin.board.controllers;
+package boardproject.admin.musical.controllers;
 
 import boardproject.commons.ExceptionProcessor;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/admin/board")
 @RequiredArgsConstructor
-public class ApiAdminBoardController implements ExceptionProcessor {
+public class ApiAdminMusicalController implements ExceptionProcessor {
     // private final
 }

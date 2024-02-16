@@ -1,4 +1,12 @@
 package boardproject.file.controllers;
 
-public class ApiFileController {
+import boardproject.commons.ExceptionProcessor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/file")
+public class ApiFileController implements ExceptionProcessor {
+
+
 }
