@@ -10,28 +10,28 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QBaseEntity is a Querydsl query type for BaseEntity
+ * QBase is a Querydsl query type for Base
  */
 @Generated("com.querydsl.codegen.DefaultSupertypeSerializer")
-public class QBaseEntity extends EntityPathBase<Base> {
+public class QBase extends EntityPathBase<Base> {
 
-    private static final long serialVersionUID = -1986481792L;
+    private static final long serialVersionUID = 1711801149L;
 
-    public static final QBaseEntity baseEntity = new QBaseEntity("baseEntity");
+    public static final QBase base = new QBase("base");
 
     public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
     public final DateTimePath<java.time.LocalDateTime> modifiedAt = createDateTime("modifiedAt", java.time.LocalDateTime.class);
 
-    public QBaseEntity(String variable) {
+    public QBase(String variable) {
         super(Base.class, forVariable(variable));
     }
 
-    public QBaseEntity(Path<? extends Base> path) {
+    public QBase(Path<? extends Base> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QBaseEntity(PathMetadata metadata) {
+    public QBase(PathMetadata metadata) {
         super(Base.class, metadata);
     }
 
