@@ -29,32 +29,39 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
-	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+	/* 토큰 관련 S */
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
 	implementation 'io.jsonwebtoken:jjwt-impl:0.12.3'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
+	/* 토큰 관련 E */
 
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11:23.3.0.23.09'
 	implementation 'com.oracle.database.nls:orai18n:23.3.0.23.09'
 
+	/* 롬복 S */
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	/* 롬복 E */
 
 	implementation 'org.modelmapper:modelmapper:3.2.0'
 
-	/**
-	 * querydsl 사용 / jakarta 추가
-	 */
+
+	/* querydsl 사용 / jakarta 추가 S */
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 	annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
 
 	annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
 	annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+	/* querydsl 사용 / jakarta 추가 E */
 
-	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.2' // 이메일인증
 
+	/* 이메일 인증 */
+	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.2'
 
 }
 
