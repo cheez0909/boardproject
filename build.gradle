@@ -22,14 +22,12 @@ repositories {
 }
 
 dependencies {
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
-
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 
@@ -44,6 +42,7 @@ dependencies {
 
 	/* 롬복 S */
 	testCompileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	/* 롬복 E */
@@ -52,16 +51,18 @@ dependencies {
 
 
 	/* querydsl 사용 / jakarta 추가 S */
-	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-	annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
-
-	annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
-	annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+	implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'
+	annotationProcessor 'com.querydsl:querydsl-apt:5.1.0:jakarta'
+	annotationProcessor 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+	annotationProcessor 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 	/* querydsl 사용 / jakarta 추가 E */
 
 
 	/* 이메일 인증 */
 	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.2'
+
+	/* text DB */
+	testImplementation 'com.h2database:h2'
 
 }
 
@@ -70,7 +71,6 @@ tasks.named('test') {
 }
 
 // q형태의 클래스가 만들어 질때
-
 def querydslDir = "$buildDir/generated/querydsl"
 
 sourceSets {

@@ -11,6 +11,7 @@ import java.util.Collection;
 @Data
 @Builder
 public class MemberInfo implements UserDetails {
+
     private String email;
     private String name;
     private Member member;

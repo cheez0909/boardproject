@@ -1,12 +1,10 @@
 package boardproject.configs;
 
-import boardproject.configs.jwt.CustomJwtFilter;
-import boardproject.configs.jwt.JwtAuthenticationEntryPoint;
+import boardproject.jwt.CustomJwtFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,7 +29,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-       http.csrf(c->c.disable())
+       http.csrf(c->c.disable()) // 별도의 토큰을 발급받기때문에 csrf토큰을 사용하지 않음
                .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
                .addFilterBefore(customJwtFilter, UsernamePasswordAuthenticationFilter.class)
                .sessionManagement(c->c.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -48,8 +46,8 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(c -> {
             c.requestMatchers(
-                            "/api/member", // 회원가입
-                            "/api/member/token").permitAll() // 로그인
+                            "/api/v1/member", // 회원가입
+                            "/api/v1/member/token").permitAll() // 로그인
                     .anyRequest().authenticated(); // 나머지 URL은 모두 회원 인증(토큰 인증)
        });
 

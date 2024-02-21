@@ -2,15 +2,15 @@ server:
   port: 4321
 
 spring:
-#  profiles:
-#    active: dev
+  profiles:
+    active: dev
 
   # 데이터베이스 설정
   datasource:
     driverClassName: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: project7
-    password: aA123456
+    url: jdbc:oracle:thin:@${db.host}:${db.port}:orcl
+    username: ${db.username}
+    password: ${db.password}
 
   # 메일 전송 설정
   mail:
@@ -33,8 +33,8 @@ spring:
         show_sql: true
         format_sql: true
         use_sql_comments: true
-        # 방언설정
-        dialect: org.hibernate.dialect.OracleDialect
+        # 방언설정 - 안써도 인식함
+        # dialect: org.hibernate.dialect.OracleDialect
     hibernate:
       ddlAuto: create # 수정과 보완이 많이 일어나니까 초기에 많이 사용
 
@@ -80,6 +80,6 @@ file:
     path: c:/uploads/
 
 jwt:
-  header: Authorization
-  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM # base64 인코딩
+  header: Authorization # 명칭에 대한이름 -> 이 이름으로 토큰을 보내게 됨
+  secret: ${jwt.secret} # base64 인코딩
   accessTokenValidityInSeconds: 3600 # 60 min

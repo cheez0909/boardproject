@@ -1,10 +1,8 @@
 package boardproject.member.services;
 
 
-import boardproject.configs.jwt.TokenProvider;
+import boardproject.jwt.TokenProvider;
 import boardproject.member.controllers.RequestLogin;
-import boardproject.member.controllers.ResponseLogin;
-import boardproject.member.repositories.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

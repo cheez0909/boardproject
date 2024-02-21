@@ -20,7 +20,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/member")
+@RequestMapping("/api/v1/member")
 @RequiredArgsConstructor
 public class ApiMemberController implements ExceptionProcessor {
 

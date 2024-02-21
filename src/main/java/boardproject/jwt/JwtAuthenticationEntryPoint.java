@@ -1,4 +1,4 @@
-package boardproject.configs.jwt;
+package boardproject.jwt;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

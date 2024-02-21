@@ -29,6 +29,9 @@ public class QMusical extends EntityPathBase<Musical> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 
+    //inherited
+    public final DateTimePath<java.time.LocalDateTime> deletedAt = _super.deletedAt;
+
     public final StringPath eDate = createString("eDate");
 
     //inherited

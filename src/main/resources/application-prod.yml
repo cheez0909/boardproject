@@ -5,9 +5,9 @@ spring:
   # 데이터베이스 설정
   datasource:
     driverClassName: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:orcl
-    username: PROJECT7
-    password: aA123456 # git에 올리면 위험할 수 있으므로 비밀번호만 관리하는 서버가 따로 있음
+    url: jdbc:oracle:thin:@${db.host}:${db.port}:orcl
+    username: ${db.username}
+    password: ${db.password}
 
   # JPA 설정
   jpa:
@@ -59,6 +59,6 @@ file:
 
 
 jwt:
-  header: Authorization
-  secret: YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd6eXoxMjMxMjMxMjMxMjMxMjMxMzEyMzEyMzEzMTIzMTIzMTIzMTMxMjMxMzEzMTMxMjM # base64 인코딩
+  header: Authorization # 명칭에 대한이름 -> 이 이름으로 토큰을 보내게 됨
+  secret: ${jwt.secret} # base64 인코딩
   accessTokenValidityInSeconds: 3600 # 60 min

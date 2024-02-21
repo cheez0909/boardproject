@@ -26,6 +26,9 @@ public class Member extends Base {
 
     private String mobile;
 
+    private boolean enable; // 탈퇴여부
+    private boolean locked; // 잠김여부
+
     @Enumerated(EnumType.STRING)
     @Column(length = 15, nullable = false)
     private MemberType type = MemberType.USER;

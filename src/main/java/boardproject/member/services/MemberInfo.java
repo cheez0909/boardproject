@@ -10,6 +10,10 @@ public class MemberInfo implements UserDetails {
     private String email;
     private String password;
     private Member member;
+
+    private boolean enable; // 예외가 다르게 나옴
+    private boolean locked; // 예외가 다르게 나옴
+
     private Collection<? extends GrantedAuthority> authorities;
 
     @Override
@@ -34,7 +38,7 @@ public class MemberInfo implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !locked;
     }
 
     @Override
@@ -44,6 +48,6 @@ public class MemberInfo implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enable;
     }
 }

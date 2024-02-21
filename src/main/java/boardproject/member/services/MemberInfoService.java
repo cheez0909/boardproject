@@ -21,11 +21,9 @@ import java.util.Objects;
 public class MemberInfoService implements UserDetailsService {
 
     private final MemberRepository repository;
-
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member =repository.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException(username));
+        Member member = repository.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException(username));
 
         MemberType type = Objects.requireNonNullElse(member.getType(), MemberType.USER);
         List<? extends GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority(type.name()));

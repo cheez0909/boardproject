@@ -66,7 +66,7 @@ public class MemberLoginTest {
         String params = om.writeValueAsString(form);
 
         String body = mockMvc.perform(
-                        post("/api/member/token")
+                        post("/api/v1/member/token")
                                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                                 .characterEncoding("UTF-8")
                                 .content(params)
@@ -80,7 +80,7 @@ public class MemberLoginTest {
         System.out.println("accessToken" + accessToken);
 
 
-        mockMvc.perform(get("/api/member/admin")
+        mockMvc.perform(get("/api/v1/member/admin")
                         .header("Authorization", "Bearer " + accessToken)
                 ).andDo(print())
                 .andExpect(status().isOk());
@@ -89,7 +89,7 @@ public class MemberLoginTest {
     @Test
     @DisplayName("미로그인 상태(토큰이 없는)시 회원 전용 URL 접근 통제 테스트")
     void guestAccessTest() throws Exception {
-        mockMvc.perform(get("/api/member/info"))
+        mockMvc.perform(get("/api/v1/member/info"))
                 .andDo(print())
                 .andExpect(status().isUnauthorized());
     }

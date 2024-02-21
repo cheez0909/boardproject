@@ -40,7 +40,7 @@ class MemberSaveServiceTest {
         String params = om.writeValueAsString(form);
 
         mockMvc.perform(
-                post("/api/member")
+                post("/api/v1/member")
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .characterEncoding("UTF-8")
                         .content(params)

@@ -1,4 +1,4 @@
-package boardproject.configs.jwt;
+package boardproject.jwt;
 
 import boardproject.commons.Utils;
 import boardproject.member.MemberInfo;

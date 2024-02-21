@@ -1,4 +1,4 @@
-package boardproject.configs.jwt;
+package boardproject.jwt;
 
 
 import lombok.Data;
