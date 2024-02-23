@@ -1,6 +1,5 @@
 package boardproject.member.services;
 
-import boardproject.member.MemberInfo;
 import boardproject.member.MemberType;
 import boardproject.member.entites.Member;
 import boardproject.member.repositories.MemberRepository;
@@ -30,7 +29,7 @@ public class MemberInfoService implements UserDetailsService {
 
         return MemberInfo.builder()
                 .email(member.getEmail())
-                .name(member.getName())
+                .password(member.getPassword())
                 .member(member)
                 .authorities(authorities)
                 .build();

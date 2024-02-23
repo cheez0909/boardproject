@@ -1,11 +1,15 @@
 package boardproject.member.services;
 
 import boardproject.member.entites.Member;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Data
+@Builder
 public class MemberInfo implements UserDetails {
     private String email;
     private String password;

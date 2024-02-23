@@ -4,11 +4,10 @@ import boardproject.commons.ExceptionProcessor;
 import boardproject.commons.JSONData;
 import boardproject.commons.Utils;
 import boardproject.commons.exceptions.BadRequestException;
-import boardproject.member.MemberInfo;
 import boardproject.member.entites.Member;
+import boardproject.member.services.MemberInfo;
 import boardproject.member.services.MemberLoginService;
 import boardproject.member.services.MemberSaveService;
-import jakarta.persistence.PostRemove;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +25,11 @@ public class ApiMemberController implements ExceptionProcessor {
 
     private final MemberSaveService saveService;
     private final MemberLoginService memberLoginService;
+
+    @GetMapping
+    public String test(){
+        return "안녕하세요";
+    }
 
     @PostMapping
     public ResponseEntity<JSONData<Object>> join(@RequestBody @Valid RequestJoin form, Errors errors){

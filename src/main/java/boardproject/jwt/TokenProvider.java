@@ -1,12 +1,11 @@
 package boardproject.jwt;
 
 import boardproject.commons.Utils;
-import boardproject.member.MemberInfo;
+import boardproject.member.services.MemberInfo;
 import boardproject.member.services.MemberInfoService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
